@@ -21,7 +21,9 @@ class SearchBarComponent extends Component {
     }
 
     handleClick(){
-        searchService(this.state.currentText)
+        this.props.navigation.push('Results', {query: this.state.currentText});
+        /*
+        searchService(this.state.currentText, 1)
             .then(searchResults => {
                 console.log(searchResults);
                 if(searchResults.Response === 'True'){
@@ -30,7 +32,7 @@ class SearchBarComponent extends Component {
                     alert(searchResults.Error)
                 }
             })
-            .catch(err => console.log(err));
+            .catch(err => console.log(err));*/
     }
 
     render(){

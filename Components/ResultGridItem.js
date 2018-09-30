@@ -4,7 +4,6 @@ import styles from '../Styles/resultsGridItemStyle';
 
 class ResultGridItem extends PureComponent {
     render(){
-        console.log('item should be shown');
         return(
             <View style={styles.gridItemContainer}>
                 <Image source={{uri:this.props.item.Poster}}
