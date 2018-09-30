@@ -1,6 +1,6 @@
 # MovieSearch
 
-Hi this project is to demonstrate basic React Native network calls, pagination, and navigation. This application takes in a search query
+Hi this project is to demonstrate network calls, pagination, storage/caching and navigation in React-Native. This application takes in a search query
 and then returns a listing of movies that match the search query given. Currently implemented is lazy loaded scrolling in a FlatList for pagination
 however commented is code for the possibility of pagination via "next button" instead of scrolling. To utilize this app you'll need to acquire your
 own apikey from [the open movie data base](http://www.omdbapi.com/).
