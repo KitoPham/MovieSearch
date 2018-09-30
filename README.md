@@ -18,7 +18,7 @@ or
 For more information go to the [react-native getting started guide](https://facebook.github.io/react-native/docs/getting-started) and go to the Building Projects tab
 
 
-Future Items :
+Current To-Do Items :
 
 * Data Caching
 * Error Checking
