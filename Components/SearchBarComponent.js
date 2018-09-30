@@ -24,8 +24,10 @@ class SearchBarComponent extends Component {
         searchService(this.state.currentText)
             .then(searchResults => {
                 console.log(searchResults);
-                if(searchResults.Response){
+                if(searchResults.Response === 'True'){
                     this.props.navigation.push('Results', {query: this.state.currentText, data : searchResults.Search});
+                } else {
+                    alert(searchResults.Error)
                 }
             })
             .catch(err => console.log(err));
