@@ -12,7 +12,9 @@ export default function reducer(state = { searchResults: [] }, action) {
     case PERFORM_SEARCH:
       return { ...state, loading: true };
     case PERFORM_SEARCH_SUCCESS:
-      return { ...state, loading: false, searchResults: action.payload.data.Search};
+      if(action.payload.data.Search){
+        return { ...state, loading: false, searchResults: action.payload.data.Search};
+      }
     case PERFORM_SEARCH_FAIL:
       return {
         ...state,
@@ -38,6 +40,7 @@ export default function reducer(state = { searchResults: [] }, action) {
 
 
 export function performSearch(search, page, type) {
+  console.log(`Performing search :  /?apikey=${apiKey.API_KEY}&s=${search}&page=${page}`)
   return {
     type: type,
     payload: {

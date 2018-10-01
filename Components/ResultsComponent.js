@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Text, View, FlatList} from 'react-native';
+import {Button, Text, View, FlatList, ActivityIndicator} from 'react-native';
 import ResultsGridItem from './ResultGridItem';
 import searchService from '../Services/SearchService';
 import styles from '../Styles/resultsGridStyle';
@@ -14,7 +14,8 @@ const mapStateToProps = state => {
     if(state.searchResults){
         let results = state.searchResults.map(item => ({key: item.imdbID, ...item }));
         return {
-            searchResults: results
+            searchResults: results,
+            loading: state.loading
         };
     }
   };
@@ -54,9 +55,14 @@ class ResultsComponent extends Component{
     }*/
 
     addMoreResults(){
-        const newPage = this.state.page + 1
-        this.props.performSearch(this.state.query, newPage, ADD_SEARCH);
-        this.setState({page : newPage})
+        if(this.state.momentumScrolltoEnd){
+            const newPage = this.state.page + 1;
+            this.props.performSearch(this.state.query, newPage, ADD_SEARCH);
+            this.setState({
+                page: newPage, 
+                momentumScrolltoEnd: false
+            });
+        }
         /*if(this.state.momentumScrolltoEnd){
             this.setState({momentumScrolltoEnd:false})
             searchService(this.state.query, newPage)
@@ -95,6 +101,7 @@ class ResultsComponent extends Component{
                     })
                 }}
             />
+            <ActivityIndicator size="large" color="#0000ff" animating={this.props.loading}/>
             </View>
             <View style={styles.resultsButtonRow}>
                 <Button

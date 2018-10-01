@@ -6,7 +6,7 @@ export default styles = StyleSheet.create({
         justifyContent: 'flex-start' 
     },
     resultsTextHeadline: {
-        fontSize: 20,
+        fontSize: 30,
         height: 50,  
         padding: 10, 
         textAlign:'center'
