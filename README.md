@@ -22,3 +22,7 @@ Current To-Do Items :
 
 * Data Caching
 * Error Checking
+
+
+Reducer is based on this:
+https://github.com/erikras/ducks-modular-redux
